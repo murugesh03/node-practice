@@ -1,23 +1,22 @@
 const http = require("http");
+const fs = require("fs");
+const express = require("express");
 
-const server = http.createServer((req, res) => {
-  if (req.url === "/") {
-    res.setHeader("content-type", "text/html");
-    res.write("<html>");
-    res.write("<body>");
-    res.write(
-      "<form method='POST' action='/test'><input name='name'> <button type='submit'>Send</button> </form>"
-    );
-    res.write("</body>");
-    res.write("</html>");
-    return res.end();
-  }
+const app = express();
 
-  if (req.url === "/test" && req.method === "POST") {
-    res.statusCode = 300;
-    res.write("Redirected to test");
-    return res.end();
-  }
+// const testFunc = require("./routes/routes");
+
+// const server = http.createServer(testFunc);
+
+// server.listen(2000);
+
+app.get("/test", (req, res, next) => {
+  res.send("<p>Function executed");
 });
 
-server.listen(2000);
+app.get("/", (req, res, next) => {
+  res.send(
+    "<form method='POST' action='/test'><input name='name'> <button type='submit'>Send</button> </form>"
+  );
+});
+app.listen(2000);
