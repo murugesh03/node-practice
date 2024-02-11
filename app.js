@@ -1,8 +1,8 @@
-const http = require("http");
-const fs = require("fs");
+// const http = require("http");
+// const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
-const products = require("./routes/products");
+const products = require("./route/products");
 
 const app = express();
 
