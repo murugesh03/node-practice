@@ -35,14 +35,13 @@
 const express = require("express");
 
 const router = express.Router();
-
-router.post("/add-products", (req, res) => {
-  res.send(
-    "<form method='POST' action='/test'><input name='name'> <button type='submit'>Send</button> </form> "
-  );
-});
+const path = require("path");
 
 router.get("/view-product", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "views", "view-product.html"));
+});
+
+router.post("/view-product", (req, res) => {
   res.send("<p>View product page is shown</p> ");
 });
 
