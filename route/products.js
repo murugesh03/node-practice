@@ -35,6 +35,7 @@
 const express = require("express");
 
 const router = express.Router();
+
 const path = require("path");
 
 router.get("/view-product", (req, res) => {
@@ -42,7 +43,8 @@ router.get("/view-product", (req, res) => {
 });
 
 router.post("/view-product", (req, res) => {
-  res.send("<p>View product page is shown</p> ");
+  console.log(req.body, "this is body");
+  res.redirect("/");
 });
 
 module.exports = router;
